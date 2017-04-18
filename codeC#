@@ -1,0 +1,57 @@
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+class Solution
+{
+    static void Main(string[] args)
+    {
+        int N = int.Parse(Console.ReadLine()); // Number of elements which make up the association table.
+        int Q = int.Parse(Console.ReadLine()); // Number Q of file names to be analyzed.
+        Dictionary <string,string> extDict = new Dictionary <string,string>();
+        string[] ext = new string [Q];
+        
+        for (int i = 0; i < N; i++)
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+            extDict.Add("."+ inputs[0].ToUpper(), inputs[1]);
+        }
+        for (int i = 0; i < Q; i++)
+        {
+            string FNAME = Console.ReadLine(); // One file name per line.
+            ext[i] = Path.GetExtension(FNAME).ToUpper();
+            
+            Console.WriteLine(extDict.ContainsKey(ext[i])? extDict[ext[i]] : "UNKNOWN"); 
+        }
+        /*foreach(string extension in ext)
+        {
+           if (extension == null)
+           {
+               Console.WriteLine("UNKNOWN");
+               continue;
+           }
+           if(extDict.ContainsKey(extension))
+           {
+               Console.WriteLine(extDict[extension]);
+           }
+           else
+           {
+               Console.WriteLine("UNKNOWN");
+           }
+          
+        }*/
+        // Write an action using Console.WriteLine()
+        // To debug: Console.Error.WriteLine("Debug messages...");
+
+
+        // For each of the Q filenames, display on a line the corresponding MIME type. If there is no corresponding type, then display UNKNOWN.
+     
+    }
+}
